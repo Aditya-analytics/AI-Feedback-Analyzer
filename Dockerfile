@@ -9,7 +9,9 @@ COPY frontend/ .
 RUN npm run build
 
 # ---------- Backend runtime ----------
-FROM node:18-alpine AS backend
+# Use Debian-based image for onnxruntime-node compatibility (needs glibc, not musl)
+# node:18-slim includes glibc which is required for onnxruntime-node native bindings
+FROM node:18-slim AS backend
 WORKDIR /app
 
 # Install backend deps
