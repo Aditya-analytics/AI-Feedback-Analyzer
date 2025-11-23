@@ -36,31 +36,63 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
-// Upload and analyze CSV endpoint
+// Upload and analyze file endpoint (accepts CSV, Excel, etc.)
 app.post('/api/analyze', upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    // Parse CSV
-    const csvText = req.file.buffer.toString('utf-8');
-    const parseResult = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-    
-    if (parseResult.errors.length > 0) {
-      return res.status(400).json({ error: 'Invalid CSV format', details: parseResult.errors });
+    const fileExtension = req.file.originalname.split('.').pop().toLowerCase();
+    let data = [];
+
+    // Handle different file types
+    if (fileExtension === 'csv' || !fileExtension) {
+      // Parse CSV
+      const csvText = req.file.buffer.toString('utf-8');
+      const parseResult = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+      
+      if (parseResult.errors.length > 0) {
+        return res.status(400).json({ error: 'Invalid file format', details: parseResult.errors });
+      }
+      
+      data = parseResult.data;
+    } else {
+      // For other file types, try to parse as CSV anyway
+      try {
+        const fileText = req.file.buffer.toString('utf-8');
+        const parseResult = Papa.parse(fileText, { header: true, skipEmptyLines: true });
+        
+        if (parseResult.errors.length > 0) {
+          return res.status(400).json({ 
+            error: `Unable to parse ${fileExtension} file. Please use CSV format or ensure the file is readable as text.`,
+            details: parseResult.errors 
+          });
+        }
+        
+        data = parseResult.data;
+      } catch (error) {
+        return res.status(400).json({ 
+          error: `File type .${fileExtension} is not supported. Please upload a CSV file.`,
+          supportedFormats: ['CSV']
+        });
+      }
     }
 
     const data = parseResult.data;
 
-    // Find review column (case-insensitive)
+    // Find review column (case-insensitive, accepts "review" or "reviews")
     const headers = Object.keys(data[0] || {});
-    const reviewColumn = headers.find(h => h.toLowerCase() === 'review');
+    const reviewColumn = headers.find(h => {
+      const lowerHeader = h.toLowerCase().trim();
+      return lowerHeader === 'review' || lowerHeader === 'reviews';
+    });
 
     if (!reviewColumn) {
       return res.status(400).json({ 
-        error: 'CSV must contain a "review" column (case-insensitive)',
-        availableColumns: headers 
+        error: 'File must contain a "review" or "reviews" column (case-insensitive)',
+        availableColumns: headers,
+        hint: 'Accepted column names: review, Review, REVIEW, reviews, Reviews, REVIEWS, etc.'
       });
     }
 

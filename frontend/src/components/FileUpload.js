@@ -12,10 +12,7 @@ const FileUpload = ({ onAnalysisComplete, onError, loading, setLoading }) => {
       return;
     }
 
-    if (!file.name.endsWith('.csv')) {
-      onError('Please upload a CSV file');
-      return;
-    }
+    // Accept any file type - backend will handle parsing
 
     setLoading(true);
     const formData = new FormData();
@@ -44,9 +41,7 @@ const FileUpload = ({ onAnalysisComplete, onError, loading, setLoading }) => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: {
-      'text/csv': ['.csv']
-    },
+    accept: undefined, // Accept any file type
     multiple: false,
     disabled: loading
   });
@@ -78,16 +73,16 @@ const FileUpload = ({ onAnalysisComplete, onError, loading, setLoading }) => {
               <p className="upload-title">Drag & drop your CSV file here</p>
               <p className="upload-subtitle">or click to browse</p>
               <div className="file-requirements">
-                <p>✓ CSV file required</p>
-                <p>✓ Must contain a "review" column</p>
-                <p>✓ One review per row</p>
+                <p>✓ Any file type accepted (CSV, Excel, etc.)</p>
+                <p>✓ Must contain a "review" or "reviews" column</p>
+                <p>✓ Column name is case-insensitive</p>
               </div>
             </div>
           )}
         </div>
 
         <div className="example-section">
-          <h3>📝 Expected CSV Format</h3>
+          <h3>📝 Expected File Format</h3>
           <div className="example-table">
             <table>
               <thead>
@@ -109,7 +104,7 @@ const FileUpload = ({ onAnalysisComplete, onError, loading, setLoading }) => {
             </table>
           </div>
           <p className="example-note">
-            💡 <strong>Tip:</strong> Column name is case-insensitive (review, Review, REVIEW all work)
+            💡 <strong>Tip:</strong> Column name can be "review" or "reviews" (case-insensitive: review, Review, REVIEW, reviews, Reviews, etc.)
           </p>
         </div>
       </div>
