@@ -1,5 +1,5 @@
-const { pipeline } = require('@xenova/transformers');
-
+// Use dynamic import for ES module
+let transformersModule = null;
 let sentimentPipeline = null;
 
 // Initialize sentiment analysis pipeline
@@ -7,20 +7,31 @@ async function initPipeline() {
   if (!sentimentPipeline) {
     console.log('🔄 Loading sentiment analysis model...');
     try {
-      // Preferred 3-class model (negative/neutral/positive) via Xenova mirror
-      sentimentPipeline = await pipeline(
-        'sentiment-analysis',
-        'Xenova/cardiffnlp-twitter-roberta-base-sentiment-latest'
-      );
-      console.log('✅ Sentiment model loaded (3-class)');
-    } catch (e) {
-      console.error('⚠️ Failed to load 3-class sentiment model, falling back to 2-class. Error:', e?.message || e);
-      // Fallback 2-class (positive/negative)
-      sentimentPipeline = await pipeline(
-        'sentiment-analysis',
-        'Xenova/distilbert-base-uncased-finetuned-sst-2-english'
-      );
-      console.log('✅ Sentiment model loaded (2-class fallback)');
+      // Dynamically import the ES module
+      if (!transformersModule) {
+        transformersModule = await import('@xenova/transformers');
+      }
+      const { pipeline } = transformersModule;
+      
+      try {
+        // Preferred 3-class model (negative/neutral/positive) via Xenova mirror
+        sentimentPipeline = await pipeline(
+          'sentiment-analysis',
+          'Xenova/cardiffnlp-twitter-roberta-base-sentiment-latest'
+        );
+        console.log('✅ Sentiment model loaded (3-class)');
+      } catch (e) {
+        console.error('⚠️ Failed to load 3-class sentiment model, falling back to 2-class. Error:', e?.message || e);
+        // Fallback 2-class (positive/negative)
+        sentimentPipeline = await pipeline(
+          'sentiment-analysis',
+          'Xenova/distilbert-base-uncased-finetuned-sst-2-english'
+        );
+        console.log('✅ Sentiment model loaded (2-class fallback)');
+      }
+    } catch (error) {
+      console.error('❌ Failed to load transformers module:', error);
+      throw error;
     }
   }
   return sentimentPipeline;
