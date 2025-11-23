@@ -1,0 +1,323 @@
+.sentiment-results {
+  background: var(--surface);
+  border-radius: 28px;
+  padding: 3.5rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.5s ease-out;
+  border: 2px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sentiment-results::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient-primary);
+}
+
+.sentiment-results:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.sentiment-results h2 {
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  font-size: 2.25rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.metric-card {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--background-alt) 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.metric-card:hover::before {
+  opacity: 0.08;
+}
+
+.metric-card.positive {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.metric-card.positive:hover {
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  border-color: var(--success);
+}
+
+.metric-card.neutral {
+  border-color: var(--info);
+  color: var(--info);
+}
+
+.metric-card.neutral:hover {
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  border-color: var(--info);
+}
+
+.metric-card.negative {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.metric-card.negative:hover {
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+  border-color: var(--error);
+}
+
+.metric-card.confidence {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.metric-card.confidence:hover {
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+  border-color: var(--primary);
+}
+
+.metric-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Icon gradient glows per KPI type */
+.metric-card.positive .metric-icon {
+  background: linear-gradient(135deg, var(--success) 0%, #16a34a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 6px 14px rgba(16, 185, 129, 0.35));
+}
+
+.metric-card.neutral .metric-icon {
+  background: linear-gradient(135deg, var(--info) 0%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 6px 14px rgba(59, 130, 246, 0.35));
+}
+
+.metric-card.negative .metric-icon {
+  background: linear-gradient(135deg, var(--error) 0%, #b91c1c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 6px 14px rgba(239, 68, 68, 0.35));
+}
+
+.metric-card.confidence .metric-icon {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 6px 14px rgba(37, 99, 235, 0.35));
+}
+
+.metric-content {
+  position: relative;
+  z-index: 1;
+}
+
+.metric-content h3 {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.metric-percentage {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.chart-section {
+  margin: 3rem 0;
+  padding: 3rem;
+  background: var(--background-alt);
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-section h3 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.chart-container {
+  max-width: 550px;
+  height: 450px;
+  margin: 0 auto;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--background-alt) 100%);
+  border-radius: 16px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.download-section {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.download-button {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 1.35rem 3.25rem;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.download-button:hover::before {
+  left: 100%;
+}
+
+.download-button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(37, 99, 235, 0.45);
+}
+
+.download-button:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .sentiment-results {
+    padding: 2rem 1.5rem;
+  }
+
+  .sentiment-results h2 {
+    font-size: 1.5rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .metric-card {
+    padding: 1.5rem;
+  }
+
+  .chart-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .chart-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .chart-container {
+    height: 350px;
+    padding: 0.5rem;
+  }
+
+  .metric-icon {
+    font-size: 3rem;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+  }
+
+  .download-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

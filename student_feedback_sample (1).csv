@@ -1,0 +1,101 @@
+Student_Name,Review,Sentiment
+Student_1,"Great learning experience, the course was well-structured.",Positive
+Student_2,The teacher explained the concepts very clearly and was patient with doubts.,Positive
+Student_3,Excellent course material and assignments.,Positive
+Student_4,The labs were well-equipped and helped in understanding theory better.,Positive
+Student_5,The labs were well-equipped and helped in understanding theory better.,Positive
+Student_6,Loved the interactive sessions and group projects.,Positive
+Student_7,"Great learning experience, the course was well-structured.",Positive
+Student_8,Good coordination and regular updates from administration.,Positive
+Student_9,"Great learning experience, the course was well-structured.",Positive
+Student_10,"Overall, a great academic experience.",Positive
+Student_11,Timely feedback and good communication from teachers.,Positive
+Student_12,The teacher explained the concepts very clearly and was patient with doubts.,Positive
+Student_13,The teacher explained the concepts very clearly and was patient with doubts.,Positive
+Student_14,"Great learning experience, the course was well-structured.",Positive
+Student_15,The labs were well-equipped and helped in understanding theory better.,Positive
+Student_16,The labs were well-equipped and helped in understanding theory better.,Positive
+Student_17,Good coordination and regular updates from administration.,Positive
+Student_18,"Overall, a great academic experience.",Positive
+Student_19,The teacher explained the concepts very clearly and was patient with doubts.,Positive
+Student_20,Good coordination and regular updates from administration.,Positive
+Student_21,The labs were well-equipped and helped in understanding theory better.,Positive
+Student_22,Good coordination and regular updates from administration.,Positive
+Student_23,Timely feedback and good communication from teachers.,Positive
+Student_24,The labs were well-equipped and helped in understanding theory better.,Positive
+Student_25,Practical sessions were extremely helpful.,Positive
+Student_26,"Overall, a great academic experience.",Positive
+Student_27,Excellent course material and assignments.,Positive
+Student_28,The teacher explained the concepts very clearly and was patient with doubts.,Positive
+Student_29,Loved the interactive sessions and group projects.,Positive
+Student_30,Timely feedback and good communication from teachers.,Positive
+Student_31,Lack of coordination between teachers and administration.,Negative
+Student_32,Unorganized schedule and poor time management.,Negative
+Student_33,Assignments were given without proper instructions.,Negative
+Student_34,"Too much theory, no practical exposure.",Negative
+Student_35,Lack of coordination between teachers and administration.,Negative
+Student_36,Very poor communication and no doubt clearing sessions.,Negative
+Student_37,Very poor communication and no doubt clearing sessions.,Negative
+Student_38,Feedback was delayed and unhelpful.,Negative
+Student_39,Very poor communication and no doubt clearing sessions.,Negative
+Student_40,Lack of coordination between teachers and administration.,Negative
+Student_41,Lack of coordination between teachers and administration.,Negative
+Student_42,No real-world examples were discussed.,Negative
+Student_43,Unorganized schedule and poor time management.,Negative
+Student_44,The teacher rushed through topics without proper explanation.,Negative
+Student_45,Course content was outdated and boring.,Negative
+Student_46,Technical issues during online lectures were never resolved.,Negative
+Student_47,Very poor communication and no doubt clearing sessions.,Negative
+Student_48,Feedback was delayed and unhelpful.,Negative
+Student_49,Very poor communication and no doubt clearing sessions.,Negative
+Student_50,Technical issues during online lectures were never resolved.,Negative
+Student_51,Unorganized schedule and poor time management.,Negative
+Student_52,No real-world examples were discussed.,Negative
+Student_53,Lack of coordination between teachers and administration.,Negative
+Student_54,No real-world examples were discussed.,Negative
+Student_55,"Too much theory, no practical exposure.",Negative
+Student_56,Very poor communication and no doubt clearing sessions.,Negative
+Student_57,The teacher rushed through topics without proper explanation.,Negative
+Student_58,"Too much theory, no practical exposure.",Negative
+Student_59,Unorganized schedule and poor time management.,Negative
+Student_60,Very poor communication and no doubt clearing sessions.,Negative
+Student_61,Lab sessions were conducted twice a week.,Neutral
+Student_62,We had our midterm exam last week.,Neutral
+Student_63,Project submission date was extended by two days.,Neutral
+Student_64,The exam schedule was announced on time.,Neutral
+Student_65,We received our marksheet last month.,Neutral
+Student_66,Attendance was taken every day.,Neutral
+Student_67,Classes were held regularly as per timetable.,Neutral
+Student_68,Attendance was taken every day.,Neutral
+Student_69,Attendance was taken every day.,Neutral
+Student_70,Lab sessions were conducted twice a week.,Neutral
+Student_71,The exam schedule was announced on time.,Neutral
+Student_72,We had our midterm exam last week.,Neutral
+Student_73,The class strength was around 60 students.,Neutral
+Student_74,Classes were held regularly as per timetable.,Neutral
+Student_75,Teachers followed the standard syllabus.,Neutral
+Student_76,Lab sessions were conducted twice a week.,Neutral
+Student_77,Classes were held regularly as per timetable.,Neutral
+Student_78,We received our marksheet last month.,Neutral
+Student_79,Project submission date was extended by two days.,Neutral
+Student_80,The exam schedule was announced on time.,Neutral
+Student_81,Teachers followed the standard syllabus.,Neutral
+Student_82,Lab sessions were conducted twice a week.,Neutral
+Student_83,Attendance was taken every day.,Neutral
+Student_84,The course started in June and ended in September.,Neutral
+Student_85,Lab sessions were conducted twice a week.,Neutral
+Student_86,The course started in June and ended in September.,Neutral
+Student_87,Attendance was taken every day.,Neutral
+Student_88,Project submission date was extended by two days.,Neutral
+Student_89,The exam schedule was announced on time.,Neutral
+Student_90,We had our midterm exam last week.,Neutral
+Student_91,Lab sessions were conducted twice a week.,Neutral
+Student_92,The class strength was around 60 students.,Neutral
+Student_93,Attendance was taken every day.,Neutral
+Student_94,Lab sessions were conducted twice a week.,Neutral
+Student_95,We received our marksheet last month.,Neutral
+Student_96,Project submission date was extended by two days.,Neutral
+Student_97,We received our marksheet last month.,Neutral
+Student_98,Classes were held regularly as per timetable.,Neutral
+Student_99,The exam schedule was announced on time.,Neutral
+Student_100,Classes were held regularly as per timetable.,Neutral

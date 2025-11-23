@@ -1,0 +1,205 @@
+.about-page {
+  flex: 1;
+  background: var(--background);
+  padding: 3rem 0;
+  min-height: calc(100vh - 70px);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-section {
+  margin-bottom: 4rem;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tech-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.tech-card:hover::before {
+  transform: scaleX(1);
+}
+
+.tech-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.tech-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.tech-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.how-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.how-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.how-number {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.how-item h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.how-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.highlight-card {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+/* Ensure readability of key features on light theme */
+.highlight-card h2 {
+  color: var(--text-primary);
+}
+
+.highlight-card .feature-list li {
+  color: var(--text-primary);
+}
+
+.highlight-card .feature-list li::before {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.feature-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.feature-list li {
+  font-size: 1.05rem;
+  padding: 0.75rem 0;
+  color: var(--text-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-list li::before {
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.cta-section {
+  margin-top: 5rem;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-card h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-card p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-card h2 {
+    font-size: 2rem;
+  }
+}
