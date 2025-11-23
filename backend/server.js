@@ -79,8 +79,6 @@ app.post('/api/analyze', upload.single('file'), async (req, res) => {
       }
     }
 
-    const data = parseResult.data;
-
     // Find review column (case-insensitive, accepts "review" or "reviews")
     const headers = Object.keys(data[0] || {});
     const reviewColumn = headers.find(h => {
